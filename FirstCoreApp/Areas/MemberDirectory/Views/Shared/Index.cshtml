@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FirstCoreApp.MemberDirectory.Models.Member>
+@{ 
+    ViewData["Title"] = "Members";
+}
+    <table>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>id = @item.MemberID</td>
+            <td>first = @item.FirstName</td>
+            <td>last = @item.LastName</td>
+            <td>title = @item.Title</td>
+        </tr>
+        }
+    </table>

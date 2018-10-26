@@ -1,12 +1,8 @@
 ﻿@model IEnumerable<FirstCoreApp.Models.Video>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Video</title>
-</head>
-<body>
-    <table>
-
-
+@{ 
+    ViewData["Title"] = "Videos";
+}
+        <table>
         @foreach (var item in Model)
         {
             <tr>
@@ -15,5 +11,3 @@
             </tr>
         }
         </table>
-</body>
-</html>
