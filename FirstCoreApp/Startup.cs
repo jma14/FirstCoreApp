@@ -16,9 +16,13 @@ namespace FirstCoreApp
     {
         public IConfiguration Configuration { get; set; }
 
-        public Startup()
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+
+            if (env.IsDevelopment())
+                builder.AddUserSecrets<Startup>();
+
             Configuration = builder.Build();
         }
 
@@ -29,7 +33,7 @@ namespace FirstCoreApp
             services.AddMvc();
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IMessageService, ConfigurationMessageService>();
-            services.AddScoped<MemberDirectory.Services.IMembers, MemberDirectory.Services.Members>();
+            services.AddTransient<MemberDirectory.Services.IMembers, MemberDirectory.Services.Members>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

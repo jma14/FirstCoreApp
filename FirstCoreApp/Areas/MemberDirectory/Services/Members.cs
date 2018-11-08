@@ -28,9 +28,18 @@ namespace FirstCoreApp.MemberDirectory.Services
                 });
             }
         }
+
         public IEnumerable<Member> GetAll()
         {
             return _members;
+        }
+
+        public Member Get(int id)
+        {
+            if (_members.Where(p => p.MemberID == id).Any())
+                return _members.Where(p => p.MemberID == id).First();
+            else
+                return new Member();
         }
     }
 }

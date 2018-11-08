@@ -1,0 +1,25 @@
+﻿@model Member
+@{ 
+    ViewData["Title"] = "Members";
+}
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="@Model.MemberID" />
+    <table>
+        <tr>
+            <td><label asp-for="FirstName"></label>&nbsp;<input asp-for="FirstName" /></td>
+            <td><span asp-validation-for="@Model.FirstName"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="LastName"></label>&nbsp;<input asp-for="LastName" /></td>
+            <td><span asp-validation-for="@Model.LastName"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Title"></label>&nbsp;<input asp-for="Title" /></td>
+            <td><span asp-validation-for="@Model.Title"></span></td>
+        </tr>
+    </table>
+    <input type="submit" name="Save" />
+</form>
+@section footer{
+<p>here's the footer</p>
+}

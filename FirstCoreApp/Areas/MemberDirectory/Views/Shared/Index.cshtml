@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FirstCoreApp.MemberDirectory.Models.Member>
+﻿@model IEnumerable<Member>
 @{ 
     ViewData["Title"] = "Members";
 }
@@ -10,6 +10,11 @@
             <td>first = @item.FirstName</td>
             <td>last = @item.LastName</td>
             <td>title = @item.Title</td>
+            <td><a asp-action="Edit" asp-route-id="@item.MemberID">Edit</a></td>
         </tr>
         }
     </table>
+<a asp-action="Edit" asp-route-id="0">Add New</a>
+@section footer{
+<p>here's the footer</p>
+}
